@@ -44,7 +44,9 @@ nosetests.xml
 # local directories
 /workspace
 .idea
- 
+.venv/
+.vscode/
+
 # latex
 *.aux
 *.log
