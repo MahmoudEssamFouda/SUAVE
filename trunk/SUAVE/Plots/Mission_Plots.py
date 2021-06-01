@@ -335,7 +335,7 @@ def plot_drag_components(results, line_color = 'bo-', save_figure = False, save_
     axis_font = {'size':'14'} 
     fig    = plt.figure(save_filename)
     fig.set_size_inches(12, 10)     
-    axes = plt.subplot(1,1,1) 
+    axes = fig.add_subplot(1,1,1) 
     
     for i, segment in enumerate(results.segments.values()):
         time   = segment.conditions.frames.inertial.time[:,0] / Units.min
