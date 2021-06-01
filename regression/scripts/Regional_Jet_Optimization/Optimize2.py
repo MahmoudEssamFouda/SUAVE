@@ -9,6 +9,13 @@
 import SUAVE
 from SUAVE.Core import Units, Data
 import numpy as np
+import os
+import sys
+# Add current directory and vehicles directory to system path
+current_directory_path = os.path.dirname(__file__)
+sys.path.append(current_directory_path)
+parent_directory_path = os.path.dirname(current_directory_path)
+sys.path.append(os.path.join(parent_directory_path, "Vehicles"))
 import Analyses2
 import Missions2
 import Procedure2
@@ -16,9 +23,13 @@ import Plot_Mission2
 import matplotlib.pyplot as plt
 from SUAVE.Optimization import Nexus, carpet_plot
 import SUAVE.Optimization.Package_Setups.scipy_setup as scipy_setup
-import sys
-sys.path.append('../Vehicles')
+
+# sys.path.append('../Vehicles')
 from Embraer_190 import vehicle_setup, configs_setup
+# remove current directory and system directory from system path after import
+sys.path.remove(current_directory_path)
+sys.path.remove(os.path.join(parent_directory_path, "Vehicles"))
+
 # ----------------------------------------------------------------------        
 #   Run the whole thing
 # ----------------------------------------------------------------------  
@@ -187,5 +198,5 @@ def variable_sweep(problem):
 
 if __name__ == '__main__':
     main()
-    
+    plt.show()
     
